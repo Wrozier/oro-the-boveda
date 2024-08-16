@@ -86,7 +86,7 @@ export default function Home() {
           </div>
         </MenuItem>
         <MenuItem item="About Us" active={active} setActive={setActive}>
-          <HoveredLink href="/about">Our Story</HoveredLink>
+          <HoveredLink href="/about-us">Our Story</HoveredLink>
         </MenuItem>
         <MenuItem item="Mens" active={active} setActive={setActive}>
           <HoveredLink href="/mens">Mens</HoveredLink>

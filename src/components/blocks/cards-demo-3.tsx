@@ -1,6 +1,6 @@
 "use client";
 import { animate, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { GoCopilot } from "react-icons/go";
 
@@ -22,56 +22,18 @@ export default function CardDemo() {
 const Skeleton = () => {
   const scale = [1, 1.1, 1];
   const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
-  const sequence = [
-    [
-      ".circle-1",
-      {
-        scale,
-        transform,
-      },
-      { duration: 0.8 },
-    ],
-    [
-      ".circle-2",
-      {
-        scale,
-        transform,
-      },
-      { duration: 0.8 },
-    ],
-    [
-      ".circle-3",
-      {
-        scale,
-        transform,
-      },
-      { duration: 0.8 },
-    ],
-    [
-      ".circle-4",
-      {
-        scale,
-        transform,
-      },
-      { duration: 0.8 },
-    ],
-    [
-      ".circle-5",
-      {
-        scale,
-        transform,
-      },
-      { duration: 0.8 },
-    ],
-  ];
 
   useEffect(() => {
-    // @ts-ignore
-    animate(sequence, {
-      repeat: Infinity,
-      repeatDelay: 1,
+    const elements = [".circle-1", ".circle-2", ".circle-3", ".circle-4", ".circle-5"];
+    elements.forEach((selector, index) => {
+      animate(
+        selector,
+        { scale, transform },
+        { duration: 0.8, repeat: Infinity, repeatDelay: 1, delay: index * 0.2 }
+      );
     });
-  }, []);
+  }, [scale, transform]); // Added 'scale' and 'transform' to the dependency array
+
   return (
     <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
       <div className="flex flex-row flex-shrink-0 justify-center items-center gap-2">
@@ -100,10 +62,12 @@ const Skeleton = () => {
     </div>
   );
 };
+
 const Sparkles = () => {
   const randomMove = () => Math.random() * 2 - 1;
   const randomOpacity = () => Math.random();
   const random = () => Math.random();
+
   return (
     <div className="absolute inset-0">
       {[...Array(12)].map((_, i) => (
@@ -275,6 +239,7 @@ export const OpenAILogo = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+
 export const GeminiLogo = ({ className }: { className?: string }) => {
   return (
     <svg
@@ -296,9 +261,9 @@ export const GeminiLogo = ({ className }: { className?: string }) => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(16.1326 5.4553 -43.70045 129.2322 1.588 6.503)"
         >
-          <stop offset=".067" stop-color="#9168C0" />
-          <stop offset=".343" stop-color="#5684D1" />
-          <stop offset=".672" stop-color="#1BA1E3" />
+          <stop offset=".067" stopColor="#9168C0" />
+          <stop offset=".343" stopColor="#5684D1" />
+          <stop offset=".672" stopColor="#1BA1E3" />
         </radialGradient>
       </defs>
     </svg>
@@ -324,10 +289,10 @@ export const MetaIconOutline = ({ className }: { className?: string }) => {
           gradientTransform="matrix(1, 0, 0, -1, 0, 192)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#0064e1" />
-          <stop offset="0.4" stop-color="#0064e1" />
-          <stop offset="0.83" stop-color="#0073ee" />
-          <stop offset="1" stop-color="#0082fb" />
+          <stop offset="0" stopColor="#0064e1" />
+          <stop offset="0.4" stopColor="#0064e1" />
+          <stop offset="0.83" stopColor="#0073ee" />
+          <stop offset="1" stopColor="#0082fb" />
         </linearGradient>
         <linearGradient
           id="linear-gradient-2"
@@ -338,8 +303,8 @@ export const MetaIconOutline = ({ className }: { className?: string }) => {
           gradientTransform="matrix(1, 0, 0, -1, 0, 192)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#0082fb" />
-          <stop offset="1" stop-color="#0064e0" />
+          <stop offset="0" stopColor="#0082fb" />
+          <stop offset="1" stopColor="#0064e0" />
         </linearGradient>
       </defs>
       <path
