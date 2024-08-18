@@ -35,17 +35,47 @@ export default function Home() {
     {
       title: "MacBook Pro",
       link: "/products/macbook-pro",
-      thumbnail: "/images/macbook.png",
+      thumbnail: "/images/goldvault.png",
     },
     {
       title: "iPhone 14",
       link: "/products/iphone-14",
-      thumbnail: "/images/second-image.jpg",
+      thumbnail: "/images/product_1.png",
     },
     {
       title: "Apple Watch",
       link: "/products/apple-watch",
-      thumbnail: "/images/third-image.jpg",
+      thumbnail: "/images/oromm-cuban.png",
+    },
+    {
+      title: "MacBook Pro",
+      link: "/products/macbook-pro",
+      thumbnail: "/images/goldvault.png",
+    },
+    {
+      title: "iPhone 14",
+      link: "/products/iphone-14",
+      thumbnail: "/images/product_1.png",
+    },
+    {
+      title: "Apple Watch",
+      link: "/products/apple-watch",
+      thumbnail: "/images/oromm-cuban.png",
+    },
+    {
+      title: "MacBook Pro",
+      link: "/products/macbook-pro",
+      thumbnail: "/images/goldvault.png",
+    },
+    {
+      title: "iPhone 14",
+      link: "/products/iphone-14",
+      thumbnail: "/images/product_1.png",
+    },
+    {
+      title: "Apple Watch",
+      link: "/products/apple-watch",
+      thumbnail: "/images/oromm-cuban.png",
     },
   ];
 
@@ -87,12 +117,54 @@ export default function Home() {
         </MenuItem>
         <MenuItem item="About Us" active={active} setActive={setActive}>
           <HoveredLink href="/about-us">Our Story</HoveredLink>
+          <div className="flex flex-col space-y-4">
+            <ProductItem
+              title="MacBook Pro"
+              description="The best for the brightest."
+              href="/products/macbook-pro"
+              src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+            <ProductItem
+              title="iPhone 14"
+              description="The ultimate iPhone."
+              href="/products/iphone-14"
+              src="https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+          </div>
         </MenuItem>
         <MenuItem item="Mens" active={active} setActive={setActive}>
           <HoveredLink href="/mens">Mens</HoveredLink>
+          <div className="flex flex-col space-y-4">
+            <ProductItem
+              title="MacBook Pro"
+              description="The best for the brightest."
+              href="/products/macbook-pro"
+              src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+            <ProductItem
+              title="iPhone 14"
+              description="The ultimate iPhone."
+              href="/products/iphone-14"
+              src="https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+          </div>
         </MenuItem>
         <MenuItem item="Women" active={active} setActive={setActive}>
           <HoveredLink href="/women">Women</HoveredLink>
+          <div className="flex flex-col space-y-4">
+            <ProductItem
+              title="MacBook Pro"
+              description="The best for the brightest."
+              href="/products/macbook-pro"
+              src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+            <ProductItem
+              title="iPhone 14"
+              description="The ultimate iPhone."
+              href="/products/iphone-14"
+              src="https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+          </div>
         </MenuItem>
         <MenuItem item="Contact" active={active} setActive={setActive}>
           <HoveredLink href="/contact">Get in Touch</HoveredLink>
