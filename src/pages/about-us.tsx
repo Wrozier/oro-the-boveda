@@ -47,7 +47,7 @@ const AboutUs: React.FC = () => {
         category: "Product",
         content: (
           <p>
-            The next evolution in Apple's product line, redefining
+            The next evolution in Apple&apos;s product line, redefining
             innovation.
           </p>
         ),
@@ -119,14 +119,13 @@ const AboutUs: React.FC = () => {
         <p className="text-lg font-semibold">Exclusive Offer! Get 20% off on your first purchase!</p>
       </div>
 
-      {/* Hero Highlight component */}
-      <HeroHighlight children={undefined} />
+      
 
       {/* Main content */}
       <div className="container mx-auto p-8">
         <h1 className="text-4xl font-bold mb-4 text-center">About Us</h1>
         <p className="text-lg text-gray-700 leading-7 mb-6 text-center">
-          Welcome to Oro Boveda , where luxury meets timeless elegance. Our passion
+          Welcome to Oro Boveda, where luxury meets timeless elegance. Our passion
           for crafting exquisite gold jewelry that not only adorns but also
           appreciates in value over time is at the heart of everything we do.
         </p>
@@ -138,8 +137,8 @@ const AboutUs: React.FC = () => {
           modern.
         </p>
         <p className="text-lg text-gray-700 leading-7 mb-6 text-center">
-          Whether you're looking for a statement piece for a special occasion or a
-          timeless addition to your collection, Chateaux offers a range of
+          Whether you&apos;re looking for a statement piece for a special occasion or a
+          timeless addition to your collection, Oro Boveda offers a range of
           jewelry that caters to the discerning tastes of both men and women.
         </p>
         <p className="text-lg text-gray-700 leading-7 mb-6 text-center">
@@ -152,7 +151,6 @@ const AboutUs: React.FC = () => {
           and discover the art of fine jewelry.
         </p>
       </div>
-
     </>
   );
 };
