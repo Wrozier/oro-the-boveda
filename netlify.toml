@@ -1,13 +1,10 @@
 [build]
-  # The directory where the output of your build process is stored.
-  # Netlify will look here to serve your website.
-  publish = ".next" # For non-static builds, or "out" for static exports
-
-  # The directory where your Netlify Functions (serverless functions) are located.
+  publish = ".next"
   functions = "netlify/functions"
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [dev]
-  # Netlify will start your development server during the deploy preview.
-  # Adjust the port to match your local dev server.
   command = "npm run dev"
   targetPort = 3000
