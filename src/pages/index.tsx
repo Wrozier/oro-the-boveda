@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "@/components/ui/navbar-menu";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
-import { TracingBeam } from "@/components/ui/tracing-beam";
 import { Footer } from "@/components/ui/footer";
 
 export default function Home() {
@@ -33,12 +32,12 @@ export default function Home() {
 
   const products = [
     {
-      title: "MacBook Pro",
+      title: "Vault",
       link: "/products/macbook-pro",
       thumbnail: "/images/goldvault.png",
     },
     {
-      title: "iPhone 14",
+      title: "Customs",
       link: "/products/iphone-14",
       thumbnail: "/images/product_1.png",
     },
@@ -116,7 +115,7 @@ export default function Home() {
           </div>
         </MenuItem>
         <MenuItem item="About Us" active={active} setActive={setActive}>
-          <HoveredLink href="/about-us">Our Story</HoveredLink>
+          <HoveredLink href="/about-us">About Us</HoveredLink>
           <div className="flex flex-col space-y-4">
             <ProductItem
               title="MacBook Pro"
@@ -182,8 +181,7 @@ export default function Home() {
         </div>
       </Menu>
 
-      {/* TracingBeam component */}
-      {isScrolled && <TracingBeam><></></TracingBeam>}
+      
 
       {/* HeroParallax component */}
       <HeroParallax products={products} />
