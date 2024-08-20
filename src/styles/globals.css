@@ -275,7 +275,7 @@ nav a:hover {
   }
 }
 
-@media (min-width: 641px) and (max-width: 768px) { /* Tablets */
+@media (min-width: 641px) and (max-width: 568px) { /* Tablets */
   .carousel-container {
     padding: 1.5rem;
   }
@@ -294,7 +294,7 @@ nav a:hover {
   }
 }
 
-@media (min-width: 769px) { /* Tablets and larger */
+@media (min-width: 569px) { /* Tablets and larger */
   .carousel-container {
     padding: 2rem;
   }
