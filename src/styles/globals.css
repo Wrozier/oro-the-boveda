@@ -10,6 +10,7 @@ html, body {
   background-color: #f8f9fa; /* Light gray background */
   color: #212529; /* Dark text color */
   overflow-x: hidden; /* Prevent horizontal scrolling */
+  cursor: url('/images/oroboveda.png'), auto;
 }
 
 a {
@@ -269,7 +270,7 @@ nav a:hover {
   nav {
     padding: 0.5rem;
   }
-
+  
   /* Ensure text is readable on small screens */
   .text-lg {
     font-size: 1rem;
@@ -331,8 +332,4 @@ nav a:hover {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-}
-
-body {
-  cursor: url('/images/oroboveda.png'), auto;
 }
