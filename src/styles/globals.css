@@ -37,14 +37,25 @@ nav {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-nav a {
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.navbar-menu a {
   color: #007bff;
-  margin-right: 1rem;
+  margin: 0 1rem;
 }
 
-nav a:hover {
+.navbar-menu a:hover {
   color: #0056b3;
 }
 
