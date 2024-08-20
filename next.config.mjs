@@ -1,4 +1,6 @@
+// next.config.mjs
 export default {
+  reactStrictMode: true, // Optional: Enables React Strict Mode
   images: {
     remotePatterns: [
       {
