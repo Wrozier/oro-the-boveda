@@ -269,7 +269,7 @@ nav a:hover {
   nav {
     padding: 0.5rem;
   }
-  
+
   /* Ensure text is readable on small screens */
   .text-lg {
     font-size: 1rem;
@@ -332,6 +332,7 @@ nav a:hover {
     padding-right: 2rem;
   }
 }
+
 body {
   cursor: url('/images/oroboveda.png'), auto;
 }

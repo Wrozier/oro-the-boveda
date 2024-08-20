@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";  // Import Link from next/link
 import { Menu, MenuItem, ProductItem, HoveredLink } from "@/components/ui/navbar-menu";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
@@ -81,7 +80,7 @@ export default function Home() {
   ];
 
   // Map products to Card components
-  const items = products.map((product, index) => (
+  const items = products.map((product) => (
     <Card
       key={product.title}
       card={{
@@ -90,7 +89,7 @@ export default function Home() {
         category: "Product",
         content: <p>Some description or content related to {product.title}</p>,
       }}
-      index={index}
+      index={0}
     />
   ));
 
@@ -104,10 +103,7 @@ export default function Home() {
           }`}
         >
           <div className="navbar-left">
-            {/* Link the logo to the home page */}
-            <Link href="/">
-              <img src="/images/goldvault.png" alt="Logo" className="h-10 cursor-pointer" />
-            </Link>
+            <img src="/images/goldvault.png" alt="Logo" className="h-10" />
           </div>
 
           {/* Mobile menu icon */}
@@ -146,10 +142,10 @@ export default function Home() {
               </div>
             </MenuItem>
             <MenuItem item="About Us" active={active} setActive={setActive}>
-              <HoveredLink href="/about-us">About Us</HoveredLink>
+              <HoveredLink href="/about-us.tsx">About Us</HoveredLink>
             </MenuItem>
             <MenuItem item="Mens" active={active} setActive={setActive}>
-              <HoveredLink href="/mens-jewelry">Mens</HoveredLink>
+              <HoveredLink href="/mens">Mens</HoveredLink>
             </MenuItem>
             <MenuItem item="Women" active={active} setActive={setActive}>
               <HoveredLink href="/women">Women</HoveredLink>
@@ -191,7 +187,7 @@ export default function Home() {
                 <HoveredLink href="/about-us">About Us</HoveredLink>
               </MenuItem>
               <MenuItem item="Mens" active={active} setActive={setActive}>
-                <HoveredLink href="/mens-jewelry">Mens</HoveredLink>
+                <HoveredLink href="/mens">Mens</HoveredLink>
               </MenuItem>
               <MenuItem item="Women" active={active} setActive={setActive}>
                 <HoveredLink href="/women">Women</HoveredLink>
