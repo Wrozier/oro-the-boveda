@@ -264,9 +264,18 @@ nav a:hover {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+
+  nav {
+    padding: 0.5rem;
+  }
+  
+  /* Ensure text is readable on small screens */
+  .text-lg {
+    font-size: 1rem;
+  }
 }
 
-@media (min-width: 640px) and (max-width: 768px) { /* Tablets */
+@media (min-width: 641px) and (max-width: 768px) { /* Tablets */
   .carousel-container {
     padding: 1.5rem;
   }
@@ -285,7 +294,7 @@ nav a:hover {
   }
 }
 
-@media (min-width: 768px) { /* Tablets and larger */
+@media (min-width: 769px) { /* Tablets and larger */
   .carousel-container {
     padding: 2rem;
   }
@@ -296,6 +305,11 @@ nav a:hover {
 
   .card {
     margin: 1rem;
+  }
+
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
