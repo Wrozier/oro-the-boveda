@@ -332,3 +332,6 @@ nav a:hover {
     padding-right: 2rem;
   }
 }
+body {
+  cursor: url('/images/oroboveda.png'), auto;
+}
