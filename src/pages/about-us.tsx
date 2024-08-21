@@ -114,11 +114,7 @@ const AboutUs: React.FC = () => {
         </div>
       </Menu>
 
-      {/* Ad banner */}
-      <div className="bg-yellow-300 text-center py-4">
-        <p className="text-lg font-semibold">Exclusive Offer! Get 20% off on your first purchase!</p>
-      </div>
-
+      
       
 
       {/* Main content */}

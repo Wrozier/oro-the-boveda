@@ -127,9 +127,9 @@ export default function Home() {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex space-x-4">
+          <div className="hidden md:flex space-x-28">
             <MenuItem item="Products" active={active} setActive={setActive}>
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-3">
                 {products.slice(0, 2).map((product) => (
                   <ProductItem
                     key={product.title}
@@ -142,13 +142,13 @@ export default function Home() {
               </div>
             </MenuItem>
             <MenuItem item="About Us" active={active} setActive={setActive}>
-              <HoveredLink href="/about-us.tsx">About Us</HoveredLink>
+              <HoveredLink href="/about-us">About Us</HoveredLink>
             </MenuItem>
             <MenuItem item="Mens" active={active} setActive={setActive}>
-              <HoveredLink href="/mens">Mens</HoveredLink>
+              <HoveredLink href="/mens-jewlery">Men's Jewlery</HoveredLink>
             </MenuItem>
             <MenuItem item="Women" active={active} setActive={setActive}>
-              <HoveredLink href="/women">Women</HoveredLink>
+              <HoveredLink href="/womens-jewlery">Women's Jewlery</HoveredLink>
             </MenuItem>
             <MenuItem item="Contact" active={active} setActive={setActive}>
               <HoveredLink href="/contact">Get in Touch</HoveredLink>
@@ -187,10 +187,10 @@ export default function Home() {
                 <HoveredLink href="/about-us">About Us</HoveredLink>
               </MenuItem>
               <MenuItem item="Mens" active={active} setActive={setActive}>
-                <HoveredLink href="/mens">Mens</HoveredLink>
+                <HoveredLink href="/mens-jewelry">Men's Jewelry</HoveredLink>
               </MenuItem>
               <MenuItem item="Women" active={active} setActive={setActive}>
-                <HoveredLink href="/women">Women</HoveredLink>
+                <HoveredLink href="/womens-jewelry">Women's Jewelry</HoveredLink>
               </MenuItem>
               <MenuItem item="Contact" active={active} setActive={setActive}>
                 <HoveredLink href="/contact">Get in Touch</HoveredLink>
