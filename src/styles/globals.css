@@ -8,7 +8,7 @@ html, body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   background-color: #f8f9fa; /* Light gray background */
-  color: #212529; /* Dark text color */
+  color: #ca9d62d4; /* Dark text color */
   overflow-x: hidden; /* Prevent horizontal scrolling */
   cursor: url('/images/oroboveda.png'), auto;
 }
@@ -150,7 +150,7 @@ nav {
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #212529;
+    background-color: #0f4d21;
     color: #f8f9fa;
   }
 
