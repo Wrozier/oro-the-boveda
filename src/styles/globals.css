@@ -150,7 +150,7 @@ nav {
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #0f4d21;
+    background-color: #1b4c29a1;
     color: #f8f9fa;
   }
 
@@ -233,8 +233,8 @@ nav {
   margin-bottom: 1rem;
 }
 
-.text-gray-700 {
-  color: #4a5568; /* Tailwind's gray-700 color */
+.text-brown-700 {
+  color: #966919; /* Tailwind's gray-700 color */
 }
 
 .leading-7 {
