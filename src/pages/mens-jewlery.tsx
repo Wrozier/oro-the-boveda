@@ -1,15 +1,85 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, MenuItem, ProductItem, HoveredLink } from "@/components/ui/navbar-menu";
-import { ParallaxScroll } from "@/components/ui/parallax-scroll";
+import { Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { Footer } from "@/components/ui/footer";
+import SizeFilter from "@/components/ui/size-filter"; // Import the SizeFilter component
+
+// Define the products data locally
+const products = [
+  {
+    title: "Men's Cuban Link Chain",
+    description: "A timeless piece for the modern man.",
+    link: "/products/mens-cuban-link",
+    thumbnail: "/images/tenmmyg.png",
+    sizes: ["Small", "Medium", "Large"], // Example sizes
+  },
+  {
+    title: "Men's Gold Ring",
+    description: "Elegance in every detail.",
+    link: "/products/mens-gold-ring",
+    thumbnail: "/images/goldvault.png",
+    sizes: ["Medium", "Large"], // Example sizes
+  },
+  {
+    title: "Men's Gold Bracelet",
+    description: "Luxury on your wrist.",
+    link: "/products/mens-gold-bracelet",
+    thumbnail: "/images/oroboveda.png",
+    sizes: ["Small", "Large"], // Example sizes
+  },
+  {
+    title: "Men's Cuban Link Chain",
+    description: "A timeless piece for the modern man.",
+    link: "/products/mens-cuban-link",
+    thumbnail: "/images/tenmmyg.png",
+    sizes: ["Small", "Medium", "Large"], // Example sizes
+  },
+  {
+    title: "Men's Gold Ring",
+    description: "Elegance in every detail.",
+    link: "/products/mens-gold-ring",
+    thumbnail: "/images/goldvault.png",
+    sizes: ["Medium", "Large"], // Example sizes
+  },
+  {
+    title: "Men's Gold Bracelet",
+    description: "Luxury on your wrist.",
+    link: "/products/mens-gold-bracelet",
+    thumbnail: "/images/oroboveda.png",
+    sizes: ["Small", "Large"], // Example sizes
+  },
+  {
+    title: "Men's Cuban Link Chain",
+    description: "A timeless piece for the modern man.",
+    link: "/products/mens-cuban-link",
+    thumbnail: "/images/tenmmyg.png",
+    sizes: ["Small", "Medium", "Large"], // Example sizes
+  },
+  {
+    title: "Men's Gold Ring",
+    description: "Elegance in every detail.",
+    link: "/products/mens-gold-ring",
+    thumbnail: "/images/goldvault.png",
+    sizes: ["Medium", "Large"], // Example sizes
+  },
+  {
+    title: "Men's Gold Bracelet",
+    description: "Luxury on your wrist.",
+    link: "/products/mens-gold-bracelet",
+    thumbnail: "/images/oroboveda.png",
+    sizes: ["Small", "Large"], // Example sizes
+  },
+  
+];
 
 export default function MensJewelry() {
   const [active, setActive] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,29 +100,13 @@ export default function MensJewelry() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const products = [
-    {
-      title: "Men's Cuban Link Chain",
-      description: "A timeless piece for the modern man.",
-      link: "/products/mens-cuban-link",
-      thumbnail: "/images/tenmmyg.png",
-    },
-    {
-      title: "Men's Gold Ring",
-      description: "Elegance in every detail.",
-      link: "/products/mens-gold-ring",
-      thumbnail: "/images/oro-micro-cuban-link-chain.png",
-    },
-    {
-      title: "Men's Gold Bracelet",
-      description: "Luxury on your wrist.",
-      link: "/products/mens-gold-bracelet",
-      thumbnail: "/images/mensbracelet.png",
-    },
-  ];
+  const handleSizeSelect = (size: string) => {
+    setSelectedSize(size);
+  };
 
-  // Extract image URLs from the products
-  const productImages = products.map((product) => product.thumbnail);
+  const filteredProducts = products.filter((product) =>
+    selectedSize ? product.sizes.includes(selectedSize) : true
+  );
 
   return (
     <>
@@ -92,11 +146,11 @@ export default function MensJewelry() {
             {["Products", "Mens", "Women", "About Us", "Contact"].map((item) => (
               <MenuItem key={item} item={item} active={active} setActive={setActive}>
                 <div className="flex flex-col space-y-3">
-                  {products.slice(0, 2).map((product) => (
+                  {filteredProducts.slice(0, 2).map((product) => (
                     <ProductItem
                       key={product.title}
                       title={product.title}
-                      description={`Description for ${product.title}`}
+                      description={product.description}
                       href={product.link}
                       src={product.thumbnail}
                     />
@@ -124,11 +178,11 @@ export default function MensJewelry() {
               {["Products", "Mens", "Women", "About Us", "Contact"].map((item) => (
                 <MenuItem key={item} item={item} active={active} setActive={setActive}>
                   <div className="flex flex-col space-y-4">
-                    {products.map((product) => (
+                    {filteredProducts.map((product) => (
                       <ProductItem
                         key={product.title}
                         title={product.title}
-                        description={`Description for ${product.title}`}
+                        description={product.description}
                         href={product.link}
                         src={product.thumbnail}
                       />
@@ -156,35 +210,48 @@ export default function MensJewelry() {
         <img
           src="/images/banner_mens.png"
           alt="Men's Jewelry Banner"
-          className="w-full h-64 object-cover"
+          className="w-full h-60 object-cover"
         />
       </div>
 
-      {/* ParallaxScroll component */}
-      <main className="flex min-h-screen flex-col items-center justify-center p-8">
-        <ParallaxScroll images={productImages} />
+      {/* Filter and 3D Cards listing products */}
+      <main className="min-h-screen flex-col items-start justify-center p-8">
+        <div className="flex flex-col lg:flex-row w-full max-w-6xl gap-8">
+          {/* Filter Sidebar */}
+          <div className="w-full lg:w-1/4">
+            <SizeFilter onSizeSelect={handleSizeSelect} />
+          </div>
 
-        {/* Product Items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {products.map((product) => (
-            <div key={product.title} className="product-item">
-              <img
-                src={product.thumbnail}
-                alt={product.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">{product.title}</h3>
-                <p className="text-gray-600">{product.description}</p>
-                <a
-                  href={product.link}
-                  className="text-blue-500 hover:text-blue-700 mt-2 inline-block"
-                >
-                  Learn More
-                </a>
-              </div>
+          {/* Products */}
+          <div className="w-full lg:w-3/4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredProducts.map((product) => (
+                <CardContainer key={product.title} className="transition-transform duration-300 w-full max-w-xs">
+                  <CardBody className="relative">
+                    <CardItem
+                      as="a"
+                      href={product.link}
+                      className="p-3 bg-transparent rounded-lg shadow-lg hover:shadow-xl"
+                      translateX={0}
+                      translateY={0}
+                      translateZ={80}
+                      rotateX={0}
+                      rotateY={0}
+                      rotateZ={0}
+                    >
+                      <img
+                        src={product.thumbnail}
+                        alt={product.title}
+                        className="w-full h-60 object-cover rounded-lg mb-3"
+                      />
+                      <h3 className="text-md font-semibold mb-1">{product.title}</h3>
+                      <p className="text-brown-600 text-sm">{product.description}</p>
+                    </CardItem>
+                  </CardBody>
+                </CardContainer>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </main>
 
