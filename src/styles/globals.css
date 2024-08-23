@@ -151,7 +151,7 @@ nav {
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #0f4d21;
-    color: #f8f9fa;
+    color: #caba10f3;
   }
 
   a {
@@ -343,4 +343,12 @@ nav {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+.tracing-beam {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  background-color: #f39c12; /* Customize this color to fit your theme */
+  transition: left 0.3s ease, width 0.3s ease;
 }

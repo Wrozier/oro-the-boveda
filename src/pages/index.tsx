@@ -99,7 +99,7 @@ export default function Home() {
       <Menu setActive={setActive}>
         <div
           className={`flex justify-between items-center w-full px-4 py-4 ${
-            isScrolled ? "bg-gray-900 text-white" : ""
+            isScrolled ? "bg-brown-900 text-white" : ""
           }`}
         >
           <div className="navbar-left">
@@ -128,7 +128,7 @@ export default function Home() {
 
           {/* Desktop menu */}
           <div className="hidden md:flex space-x-28">
-            <MenuItem item="Products" active={active} setActive={setActive}>
+            <MenuItem item=" Products " active={active} setActive={setActive}>
               <div className="flex flex-col space-y-3">
                 {products.slice(0, 2).map((product) => (
                   <ProductItem
@@ -141,6 +141,22 @@ export default function Home() {
                 ))}
               </div>
             </MenuItem>
+            <MenuItem item="Mens" active={active} setActive={setActive}>
+              <div className="flex flex-col space-y-3">
+                {products.slice(0, 2).map((product) => (
+                  <ProductItem
+                    key={product.title}
+                    title={product.title}
+                    description={`Description for ${product.title}`}
+                    href={product.link}
+                    src={product.thumbnail}
+                  />
+                ))}
+              </div>
+            </MenuItem>
+      
+            
+            
             <MenuItem item="About Us" active={active} setActive={setActive}>
               <HoveredLink href="/about-us">About Us</HoveredLink>
             </MenuItem>

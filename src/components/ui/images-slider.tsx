@@ -1,4 +1,5 @@
 "use client";
+
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
@@ -58,6 +59,7 @@ export const ImagesSlider = ({
       })
       .catch((error) => console.error("Failed to load images", error));
   };
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight") {
@@ -69,8 +71,8 @@ export const ImagesSlider = ({
 
     window.addEventListener("keydown", handleKeyDown);
 
-    // autoplay
-    let interval: any;
+    // Autoplay
+    let interval: NodeJS.Timeout;
     if (autoplay) {
       interval = setInterval(() => {
         handleNext();
@@ -81,7 +83,7 @@ export const ImagesSlider = ({
       window.removeEventListener("keydown", handleKeyDown);
       clearInterval(interval);
     };
-  }, []);
+  }, [autoplay]);
 
   const slideVariants = {
     initial: {
