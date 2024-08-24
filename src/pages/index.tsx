@@ -24,6 +24,51 @@ export default function Home() {
       link: "/products/apple-watch",
       thumbnail: "/images/oromm-cuban.png",
     },
+    {
+      title: "Vault",
+      link: "/products/vault",
+      thumbnail: "/images/goldvault.png",
+    },
+    {
+      title: "Customs",
+      link: "/products/customs",
+      thumbnail: "/images/product_1.png",
+    },
+    {
+      title: "Apple Watch",
+      link: "/products/apple-watch",
+      thumbnail: "/images/oromm-cuban.png",
+    },
+    {
+      title: "Vault",
+      link: "/products/vault",
+      thumbnail: "/images/goldvault.png",
+    },
+    {
+      title: "Customs",
+      link: "/products/customs",
+      thumbnail: "/images/product_1.png",
+    },
+    {
+      title: "Apple Watch",
+      link: "/products/apple-watch",
+      thumbnail: "/images/oromm-cuban.png",
+    },
+    {
+      title: "Vault",
+      link: "/products/vault",
+      thumbnail: "/images/goldvault.png",
+    },
+    {
+      title: "Customs",
+      link: "/products/customs",
+      thumbnail: "/images/product_1.png",
+    },
+    {
+      title: "Apple Watch",
+      link: "/products/apple-watch",
+      thumbnail: "/images/oromm-cuban.png",
+    },
     // Add more products as needed...
   ];
 
