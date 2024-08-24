@@ -121,25 +121,7 @@ export default function MensJewelry() {
             <img src="/images/goldvault.png" alt="Logo" className="h-10" />
           </div>
 
-          {/* Mobile menu icon */}
-          <div className="md:hidden flex items-center">
-            <button onClick={toggleMenu} className="focus:outline-none">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="h-6 w-6 text-gray-800"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 5.25h16.5m-16.5 7.5h16.5m-16.5 7.5h16.5"
-                />
-              </svg>
-            </button>
-          </div>
+          
 
           {/* Desktop menu */}
           <div className="hidden md:flex space-x-28">
