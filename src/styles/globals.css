@@ -2,16 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles */
+/* Font-face definition for black_jackregular */
+@font-face {
+  font-family: 'black_jackregular';
+  src: url('/fonts/blackjack-webfont.eot');
+  src: url('/fonts/blackjack-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/blackjack-webfont.woff2') format('woff2'),
+       url('/fonts/blackjack-webfont.woff') format('woff'),
+       url('/fonts/blackjack-webfont.ttf') format('truetype'),
+       url('/fonts/blackjack-webfont.svg#black_jackregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the font globally */
 html, body {
   padding: 0;
   margin: 0;
   font-family: 'black_jackregular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  background-color: #f8f9fa; /* Light gray background */
-  color: #ca9d62d4; /* Dark text color */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  background-color: #f8f9fa;
+  color: #ca9d62d4;
+  overflow-x: hidden;
   cursor: url('/images/oroboveda.png'), auto;
 }
+
+
+
 
 a {
   color: #007bff; /* Link color */
@@ -33,6 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 nav {
+  font-family: 'black_jackregular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
@@ -43,7 +60,9 @@ nav {
   position: relative;
 }
 
+
 .navbar-menu {
+  font-family: 'black_jackregular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,12 +137,14 @@ nav {
 }
 
 .card .category {
+  font-family: 'black_jackregular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-size: 0.875rem;
   color: #888;
   margin-bottom: 0.5rem;
 }
 
 .card .title {
+  font-family: 'black_jackregular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
@@ -345,7 +366,6 @@ nav {
   }
 }
 
-/* Tracing Beam Styles */
 .tracing-beam {
   position: absolute;
   bottom: 0;
@@ -353,15 +373,14 @@ nav {
   background-color: #f39c12; /* Customize this color to fit your theme */
   transition: left 0.3s ease, width 0.3s ease;
 }
-
-/* 3D Card Styles */
+/* styles/3d-card.module.css */
 .card-container {
   width: 100%;
   max-width: 16rem; /* Adjust as needed */
   perspective: 1000px;
   margin: 0 auto; /* Center cards if needed */
 }
-
+/* styles/3d-card.module.css */
 .card-body {
   position: relative;
   width: 100%;
@@ -369,6 +388,7 @@ nav {
   padding: 1rem; /* Adjust padding */
 }
 
+/* styles/3d-card.module.css */
 .card-item {
   display: flex;
   flex-direction: column;
@@ -388,12 +408,12 @@ nav {
   transform: translateZ(10px); /* Add depth effect */
 }
 
+/* styles/3d-card.module.css */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax value as needed */
   gap: 1.5rem; /* Adjust gap value to increase or decrease spacing between items */
 }
-
 @keyframes aurora {
   0% {
     background-position: 50% 50%, 50% 50%;
@@ -456,7 +476,7 @@ nav {
 }
 
 .mask-image {
-  mask-image: radial-gradient(ellipse at 100% 0%, #043104 10%, var(--transparent) 70%);
+  mask-image: radial-gradient(ellipse at 100% 0%, green 10%, var(--transparent) 70%);
 }
 
 /* Utility class for inset without px */
@@ -465,17 +485,4 @@ nav {
   right: -10px;
   bottom: -10px;
   left: -10px;
-}
-
-/* Font-face definition for black_jackregular */
-@font-face {
-  font-family: 'black_jackregular';
-  src: url('/fonts/blackjack-webfont.eot');
-  src: url('/fonts/blackjack-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/blackjack-webfont.woff2') format('woff2'),
-       url('/fonts/blackjack-webfont.woff') format('woff'),
-       url('/fonts/blackjack-webfont.ttf') format('truetype'),
-       url('/fonts/blackjack-webfont.svg#black_jackregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
 }
