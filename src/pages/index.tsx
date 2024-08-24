@@ -89,7 +89,7 @@ export default function Home() {
   const links = [
     { label: "Home", href: "/", icon: <IconHome /> },
     { label: "About Us", href: "/about-us", icon: <IconInfoCircle /> },
-    { label: "Men's Jewelry", href: "/mens-jewelry", icon: <IconUser /> },
+    { label: "Men's Jewelry", href: "/mens-jewlery", icon: <IconUser /> },
     { label: "Women's Jewelry", href: "/womens-jewelry", icon: <IconUser /> },
     { label: "Contact", href: "/contact", icon: <IconInfoCircle /> },
   ];
