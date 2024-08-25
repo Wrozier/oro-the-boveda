@@ -9,72 +9,30 @@ import SizeFilter from "@/components/ui/size-filter"; // Import the SizeFilter c
 // Define the products data locally
 const products = [
   {
-    title: "Men's Cuban Link Chain",
-    description: "A timeless piece for the modern man.",
-    link: "/products/mens-cuban-link",
-    thumbnail: "/images/tenmmyg.png",
+    title: "Women's Diamond Necklace",
+    description: "A stunning diamond necklace for every occasion.",
+    link: "/products/womens-diamond-necklace",
+    thumbnail: "/images/diamondnecklace.png",
     sizes: ["Small", "Medium", "Large"], // Example sizes
   },
   {
-    title: "Men's Gold Ring",
-    description: "Elegance in every detail.",
-    link: "/products/mens-gold-ring",
-    thumbnail: "/images/goldvault.png",
+    title: "Women's Gold Earrings",
+    description: "Elegant gold earrings to elevate your style.",
+    link: "/products/womens-gold-earrings",
+    thumbnail: "/images/goldearrings.png",
     sizes: ["Medium", "Large"], // Example sizes
   },
   {
-    title: "Men's Gold Bracelet",
-    description: "Luxury on your wrist.",
-    link: "/products/mens-gold-bracelet",
-    thumbnail: "/images/oroboveda.png",
+    title: "Women's Silver Bracelet",
+    description: "A delicate bracelet for a refined look.",
+    link: "/products/womens-silver-bracelet",
+    thumbnail: "/images/silverbracelet.png",
     sizes: ["Small", "Large"], // Example sizes
   },
-  {
-    title: "Men's Cuban Link Chain",
-    description: "A timeless piece for the modern man.",
-    link: "/products/mens-cuban-link",
-    thumbnail: "/images/tenmmyg.png",
-    sizes: ["Small", "Medium", "Large"], // Example sizes
-  },
-  {
-    title: "Men's Gold Ring",
-    description: "Elegance in every detail.",
-    link: "/products/mens-gold-ring",
-    thumbnail: "/images/goldvault.png",
-    sizes: ["Medium", "Large"], // Example sizes
-  },
-  {
-    title: "Men's Gold Bracelet",
-    description: "Luxury on your wrist.",
-    link: "/products/mens-gold-bracelet",
-    thumbnail: "/images/oroboveda.png",
-    sizes: ["Small", "Large"], // Example sizes
-  },
-  {
-    title: "Men's Cuban Link Chain",
-    description: "A timeless piece for the modern man.",
-    link: "/products/mens-cuban-link",
-    thumbnail: "/images/tenmmyg.png",
-    sizes: ["Small", "Medium", "Large"], // Example sizes
-  },
-  {
-    title: "Men's Gold Ring",
-    description: "Elegance in every detail.",
-    link: "/products/mens-gold-ring",
-    thumbnail: "/images/goldvault.png",
-    sizes: ["Medium", "Large"], // Example sizes
-  },
-  {
-    title: "Men's Gold Bracelet",
-    description: "Luxury on your wrist.",
-    link: "/products/mens-gold-bracelet",
-    thumbnail: "/images/oroboveda.png",
-    sizes: ["Small", "Large"], // Example sizes
-  },
-  
+  // Add more products as needed
 ];
 
-export default function MensJewelry() {
+export default function WomensJewelry() {
   const [active, setActive] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
@@ -114,15 +72,12 @@ export default function MensJewelry() {
       <Menu setActive={setActive}>
         <div
           className={`flex justify-between items-center w-full px-4 py-4 ${
-            isScrolled ? "bg-brown-900 text-white" : ""
+            isScrolled ? "bg-pink-900 text-white" : ""
           }`}
         >
           <div className="navbar-left">
             <img src="/images/goldvault.png" alt="Logo" className="h-10" />
-            
           </div>
-
-          
 
           {/* Desktop menu */}
           <div className="hidden md:flex space-x-28">
@@ -191,8 +146,8 @@ export default function MensJewelry() {
       {/* Banner image */}
       <div className="mt-6">
         <img
-          src="/images/banner_mens.png"
-          alt="Men's Jewelry Banner"
+          src="/images/banner_womens.png"
+          alt="Women's Jewelry Banner"
           className="w-full h-60 object-cover"
         />
       </div>
@@ -228,7 +183,7 @@ export default function MensJewelry() {
                         className="w-full h-60 object-cover rounded-lg mb-3"
                       />
                       <h3 className="text-md font-semibold mb-1">{product.title}</h3>
-                      <p className="text-brown-600 text-sm">{product.description}</p>
+                      <p className="text-pink-600 text-sm">{product.description}</p>
                     </CardItem>
                   </CardBody>
                 </CardContainer>
