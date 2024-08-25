@@ -146,7 +146,7 @@ export default function WomensJewelry() {
       {/* Banner image */}
       <div className="mt-6">
         <img
-          src="/images/banner_womens.png"
+          src="/images/banner_women.png"
           alt="Women's Jewelry Banner"
           className="w-full h-60 object-cover"
         />
