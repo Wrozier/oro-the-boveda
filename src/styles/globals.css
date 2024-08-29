@@ -17,8 +17,7 @@
 }
 
 /* Apply the font globally */
-
-  html, body {
+html, body {
   padding: 0;
   margin: 0;
   font-family: 'black_jackregular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -26,8 +25,7 @@
   color: #ca9d62d4;
   overflow-x: hidden;
   cursor: url('/images/oroboveda.png'), auto;
-   }
-
+}
 
 /* General element styling */
 a {
@@ -82,8 +80,11 @@ nav {
 
 /* TracingBeam component styles */
 .tracing-beam {
-  position: relative;
-  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  background-color: #f39c12; /* Customize this color to fit your theme */
+  transition: left 0.3s ease, width 0.3s ease;
 }
 
 .tracing-beam::before {
@@ -157,6 +158,58 @@ nav {
   line-height: 1.5;
 }
 
+/* 3D Card Styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.card-container {
+  width: 100%;
+  max-width: 16rem; /* Adjust as needed */
+  perspective: 1000px;
+  margin: 0 auto; /* Center cards if needed */
+}
+
+.card-body {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 1rem; /* Adjust padding */
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  background: white;
+  border-radius: 0.5rem; /* Adjust corner radius */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 1rem; /* Adjust padding */
+}
+
+.card-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transform: translateZ(10px); /* Add depth effect */
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax value as needed */
+  gap: 1.5rem; /* Adjust gap value to increase or decrease spacing between items */
+}
+
 /* Utility classes */
 .mt-0 {
   margin-top: 0;
@@ -168,6 +221,56 @@ nav {
 
 .p-4 {
   padding: 1rem;
+}
+
+.blur-10 {
+  filter: blur(10px);
+}
+
+.invert {
+  filter: invert(1);
+}
+
+.dark\:invert-0 {
+  filter: invert(0);
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.animate-aurora {
+  animation: aurora 8s infinite linear;
+}
+
+.mask-image {
+  mask-image: radial-gradient(ellipse at 100% 0%, green 10%, var(--transparent) 70%);
+}
+
+.inset-10 {
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
 }
 
 /* Dark mode styles */
@@ -198,19 +301,6 @@ nav {
   input:focus, textarea:focus {
     border-color: #61dafb;
   }
-}
-
-/* 3D Card Styles */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
 }
 
 /* Custom CSS for the about-us.tsx page */
@@ -261,230 +351,13 @@ nav {
 }
 
 .leading-7 {
-  line-height: 1.75rem; /* Tailwind's leading-7 class */
+  line-height: 1.75rem; /* Tailwind's leading-7 */
 }
 
-.mb-6 {
-  margin-bottom: 1.5rem;
+.max-w-2xl {
+  max-width: 42rem; /* Tailwind's max-w-2xl */
 }
 
-.text-4xl {
-  font-size: 2.25rem; /* Tailwind's 4xl text size */
-}
-
-.font-bold {
-  font-weight: 700;
-}
-
-/* Responsive Design Enhancements */
-@media (max-width: 640px) { /* Mobile screens */
-  .carousel-container {
-    padding: 1rem;
-  }
-
-  .carousel-item {
-    padding: 0.5rem;
-  }
-
-  .card {
-    border: none;
-    box-shadow: none;
-    margin: 0.5rem;
-  }
-
-  .card img {
-    height: auto;
-  }
-
-  .container {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
-  nav {
-    padding: 0.5rem;
-  }
-  
-  /* Ensure text is readable on small screens */
-  .text-lg {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 641px) and (max-width: 768px) { /* Tablets */
-  .carousel-container {
-    padding: 1.5rem;
-  }
-
-  .carousel-item {
-    padding: 0.75rem;
-  }
-
-  .card {
-    margin: 1rem;
-  }
-
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-@media (min-width: 769px) { /* Tablets and larger */
-  .carousel-container {
-    padding: 2rem;
-  }
-
-  .carousel-item {
-    padding: 1rem;
-  }
-
-  .card {
-    margin: 1rem;
-  }
-
-  .container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) { /* Desktops */
-  .carousel-container {
-    padding: 2rem;
-  }
-
-  .carousel-item {
-    padding: 1rem;
-  }
-
-  .card {
-    margin: 1rem;
-  }
-
-  .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
-.tracing-beam {
-  position: absolute;
-  bottom: 0;
-  height: 4px;
-  background-color: #f39c12; /* Customize this color to fit your theme */
-  transition: left 0.3s ease, width 0.3s ease;
-}
-/* styles/3d-card.module.css */
-.card-container {
-  width: 100%;
-  max-width: 16rem; /* Adjust as needed */
-  perspective: 1000px;
-  margin: 0 auto; /* Center cards if needed */
-}
-/* styles/3d-card.module.css */
-.card-body {
-  position: relative;
-  width: 100%;
-  height: auto;
-  padding: 1rem; /* Adjust padding */
-}
-
-/* styles/3d-card.module.css */
-.card-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  background: white;
-  border-radius: 0.5rem; /* Adjust corner radius */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  padding: 1rem; /* Adjust padding */
-}
-
-.card-item:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  transform: translateZ(10px); /* Add depth effect */
-}
-
-/* styles/3d-card.module.css */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax value as needed */
-  gap: 1.5rem; /* Adjust gap value to increase or decrease spacing between items */
-}
-@keyframes aurora {
-  0% {
-    background-position: 50% 50%, 50% 50%;
-  }
-  100% {
-    background-position: 100% 50%, 100% 50%;
-  }
-}
-
-/* Add the necessary CSS variables */
-:root {
-  --white: #ffffff;
-  --black: #000000;
-  --transparent: transparent;
-  --blue-500: #3b82f6;
-  --indigo-300: #818cf8;
-  --blue-300: #93c5fd;
-  --violet-200: #c4b5fd;
-  --blue-400: #60a5fa;
-}
-
-/* Updated utility classes without px units */
-.blur-10 {
-  filter: blur(10px);
-}
-
-.invert {
-  filter: invert(1);
-}
-
-.dark\:invert-0 {
-  filter: invert(0);
-}
-
-.pointer-events-none {
-  pointer-events: none;
-}
-
-.will-change-transform {
-  will-change: transform;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.inset-0 {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.opacity-50 {
-  opacity: 0.5;
-}
-
-.animate-aurora {
-  animation: aurora 8s infinite linear;
-}
-
-.mask-image {
-  mask-image: radial-gradient(ellipse at 100% 0%, green 10%, var(--transparent) 70%);
-}
-
-/* Utility class for inset without px */
-.inset-10 {
-  top: -10px;
-  right: -10px;
-  bottom: -10px;
-  left: -10px;
+.text-gray-800 {
+  color: #2d3748; /* Tailwind's gray-800 color */
 }
