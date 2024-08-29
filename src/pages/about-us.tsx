@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "@/components/ui/navbar-menu";
 import { ParallaxScroll } from "@/components/ui/parallax-scroll";
-import { ImagesSlider } from "@/components/ui/images-slider"; // Import the ImageSlider component
+import { ImagesSlider } from "@/components/ui/images-slider"; // Import the ImagesSlider component
 
 const AboutUs: React.FC = () => {
   const [active, setActive] = useState<string | null>(null);
@@ -56,41 +56,9 @@ const AboutUs: React.FC = () => {
       link: "/products/iphone-14",
       thumbnail: "/images/product_1.png",
     },
-    {
-      title: "Apple Watch",
-      link: "/products/apple-watch",
-      thumbnail: "/images/oromm-cuban.png",
-    },
-    {
-      title: "MacBook Pro",
-      link: "/products/macbook-pro",
-      thumbnail: "/images/goldvault.png",
-    },
-    {
-      title: "iPhone 14",
-      link: "/products/iphone-14",
-      thumbnail: "/images/product_1.png",
-    },
-    {
-      title: "Apple Watch",
-      link: "/products/apple-watch",
-      thumbnail: "/images/oromm-cuban.png",
-    },
   ];
 
   const images = [
-    "/images/product_1.png",
-    "/images/oroboveda.png",
-    "/images/oromm-cuban.png",
-    "/images/product_1.png",
-    "/images/oroboveda.png",
-    "/images/oromm-cuban.png",
-    "/images/product_1.png",
-    "/images/oroboveda.png",
-    "/images/oromm-cuban.png",
-    "/images/product_1.png",
-    "/images/oroboveda.png",
-    "/images/oromm-cuban.png",
     "/images/product_1.png",
     "/images/oroboveda.png",
     "/images/oromm-cuban.png",
@@ -132,36 +100,13 @@ const AboutUs: React.FC = () => {
           {/* Desktop menu */}
           <div className="hidden md:flex space-x-28">
             <MenuItem item="Products" active={active} setActive={setActive}>
-              <div className="flex flex-col space-y-3">
-                {products.slice(0, 2).map((product) => (
-                  <ProductItem
-                    key={product.title}
-                    title={product.title}
-                    description={`Description for ${product.title}`}
-                    href={product.link}
-                    src={product.thumbnail}
-                  />
-                ))}
-              </div>
-            </MenuItem>
-            <MenuItem item="Mens" active={active} setActive={setActive}>
-              <div className="flex flex-col space-y-3">
-                {products.slice(0, 2).map((product) => (
-                  <ProductItem
-                    key={product.title}
-                    title={product.title}
-                    description={`Description for ${product.title}`}
-                    href={product.link}
-                    src={product.thumbnail}
-                  />
-                ))}
-              </div>
-            </MenuItem>
-            <MenuItem item="About Us" active={active} setActive={setActive}>
-              <HoveredLink href="/about-us">About Us</HoveredLink>
+              <HoveredLink href="/products">Products</HoveredLink>
             </MenuItem>
             <MenuItem item="Mens" active={active} setActive={setActive}>
               <HoveredLink href="/mens-jewelry">Men's Jewelry</HoveredLink>
+            </MenuItem>
+            <MenuItem item="About Us" active={active} setActive={setActive}>
+              <HoveredLink href="/about-us">About Us</HoveredLink>
             </MenuItem>
             <MenuItem item="Women" active={active} setActive={setActive}>
               <HoveredLink href="/womens-jewelry">Women's Jewelry</HoveredLink>
@@ -187,23 +132,13 @@ const AboutUs: React.FC = () => {
           <div className="md:hidden">
             <div className="flex flex-col space-y-4 p-4 bg-white shadow-md">
               <MenuItem item="Products" active={active} setActive={setActive}>
-                <div className="flex flex-col space-y-4">
-                  {products.map((product) => (
-                    <ProductItem
-                      key={product.title}
-                      title={product.title}
-                      description={`Description for ${product.title}`}
-                      href={product.link}
-                      src={product.thumbnail}
-                    />
-                  ))}
-                </div>
-              </MenuItem>
-              <MenuItem item="About Us" active={active} setActive={setActive}>
-                <HoveredLink href="/about-us">About Us</HoveredLink>
+                <HoveredLink href="/products">Products</HoveredLink>
               </MenuItem>
               <MenuItem item="Mens" active={active} setActive={setActive}>
                 <HoveredLink href="/mens-jewelry">Men's Jewelry</HoveredLink>
+              </MenuItem>
+              <MenuItem item="About Us" active={active} setActive={setActive}>
+                <HoveredLink href="/about-us">About Us</HoveredLink>
               </MenuItem>
               <MenuItem item="Women" active={active} setActive={setActive}>
                 <HoveredLink href="/womens-jewelry">Women's Jewelry</HoveredLink>
@@ -233,7 +168,44 @@ const AboutUs: React.FC = () => {
         </div>
       </ImagesSlider>
 
-      
+      {/* Main content */}
+      <div className="container mx-auto p-8">
+        <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">About Us</h1>
+        
+        <div className="mb-8">
+          <p className="text-lg text-gray-700 leading-relaxed text-center">
+            Welcome to <strong>Oro Boveda</strong>, where luxury meets timeless elegance. Our passion
+            for crafting exquisite gold jewelry is at the heart of everything we do.
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed text-center">
+            Welcome to <strong>Oro Boveda</strong>, where luxury meets timeless elegance. Our passion
+            for crafting exquisite gold jewelry is at the heart of everything we do.
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed text-center">
+            At Oro Boveda, we believe jewelry is more than just an accessory; it is a legacy. Our 
+            designs blend a rich heritage of craftsmanship with contemporary artistry, creating 
+            pieces that are both classic and modern.
+          </p>
+        </div>
+        <div className="mb-8">
+          <p className="text-lg text-gray-700 leading-relaxed text-center">
+            Whether you’re seeking a statement piece for a special occasion or a timeless addition 
+            to your collection, Oro Boveda offers a range of jewelry that caters to the discerning 
+            tastes of both men and women.
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed text-center">
+            Our commitment to quality, sustainability, and ethical practices ensures that each piece 
+            is crafted with care and responsibility, radiating beauty inside and out.
+          </p>
+        </div>
+
+        <div className="text-center">
+          <p className="text-lg text-gray-700 leading-relaxed">
+            Thank you for choosing Oro Boveda. We invite you to explore our collection and discover 
+            the art of fine jewelry.
+          </p>
+        </div>
+      </div>
 
       {/* ParallaxScroll component with images */}
       <div className="mt-8">
