@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu"; // Import components from navbar-menu
+import { Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
 import CartItem from "@/components/ui/CartItem";
 import CheckoutForm from "@/components/ui/CheckoutForm";
 import OrderTracking from "@/components/ui/OrderTracking";
@@ -10,13 +10,35 @@ import PaymentOptions from "@/components/ui/PaymentOptions";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([
-    { id: 1, name: "Gold Necklace", price: 100, quantity: 1, thumbnail: "/images/goldnecklace.png" },
-    { id: 2, name: "Diamond Ring", price: 200, quantity: 2, thumbnail: "/images/diamondring.png" },
+    { id: 1, name: "Gold Necklace", price: 100, quantity: 1, thumbnail: "/images/las-villas-cuban-link-bracelet-10mm-solid-cuban-link-bracelet-in-18k-yellow-gold-14327469703240_283x283_v=1587285217.png" },
+    { id: 2, name: "Diamond Ring", price: 200, quantity: 2, thumbnail: "/images/tenmmyg.png" },
   ]);
 
   const [selectedPostal, setSelectedPostal] = useState<string | null>(null);
   const [paymentMethod, setPaymentMethod] = useState<string | null>(null);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+
+  const handleAddItem = (id: number) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  };
+
+  const handleRemoveItem = (id: number) => {
+    setCartItems((prevItems) =>
+      prevItems
+        .map((item) =>
+          item.id === id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
+  };
 
   return (
     <>
@@ -38,7 +60,12 @@ const Cart = () => {
 
         <div className="flex flex-col gap-6 mb-6">
           {cartItems.map((item) => (
-            <CartItem key={item.id} item={item} />
+            <CartItem
+              key={item.id}
+              item={item}
+              onAdd={() => handleAddItem(item.id)}
+              onRemove={() => handleRemoveItem(item.id)}
+            />
           ))}
         </div>
 

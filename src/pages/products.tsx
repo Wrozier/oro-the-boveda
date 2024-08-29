@@ -1,66 +1,34 @@
 "use client";
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { Footer } from "@/components/ui/footer";
 import SizeFilter from "@/components/ui/size-filter";
-import { IconDiamond, IconHeart, IconGift } from "@tabler/icons-react";
+import { IconUser, IconHeart, IconShoppingCart } from "@tabler/icons-react";
 
-// Define the products data locally
+// Define the products data for both men and women
 const products = [
   {
-    title: "Women's Diamond Necklace",
-    description: "Sparkle and shine with elegance.",
-    link: "/products/womens-diamond-necklace",
-    thumbnail: "/images/diamond-necklace.png",
+    title: "Men's Cuban Link Chain",
+    description: "A timeless piece for the modern man.",
+    link: "/products/mens-cuban-link",
+    thumbnail: "/images/tenmmyg.png",
     sizes: ["Small", "Medium", "Large"],
+    category: "men",
   },
   {
-    title: "Women's Gold Earrings",
-    description: "Timeless beauty in every detail.",
-    link: "/products/womens-gold-earrings",
-    thumbnail: "/images/gold-earrings.png",
-    sizes: ["Medium", "Large"],
+    title: "Women's Diamond Necklace",
+    description: "Elegance in every detail.",
+    link: "/products/womens-diamond-necklace",
+    thumbnail: "/images/diamondnecklace.png",
+    sizes: ["One Size"],
+    category: "women",
   },
-  {
-    title: "Women's Bracelet",
-    description: "Grace on your wrist.",
-    link: "/products/womens-bracelet",
-    thumbnail: "/images/bracelet.png",
-    sizes: ["Small", "Large"],
-  },
-  // Add more products as needed...
+  // Add more products here...
 ];
 
-const sidebarLinks = [
-  { label: "Products", href: "/products", icon: <IconDiamond /> },
-  { label: "Mens", href: "/mens-jewelry", icon: <IconHeart /> },
-  { label: "Women", href: "/womens-jewelry", icon: <IconGift /> },
-  { label: "About Us", href: "/about-us", icon: <IconHeart /> },
-  { label: "Contact", href: "/contact", icon: <IconGift /> },
-];
-
-export default function WomensJewelry() {
-  const [active, setActive] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isScrolled, setIsScrolled] = useState(false);
+export default function Products() {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
 
   const handleSizeSelect = (size: string) => {
     setSelectedSize(size);
@@ -72,20 +40,20 @@ export default function WomensJewelry() {
 
   return (
     <>
-      {/* Sidebar component */}
+      {/* Sidebar Component */}
       <Sidebar>
         <SidebarBody>
-          {sidebarLinks.map((link) => (
-            <SidebarLink key={link.href} link={link} />
-          ))}
+          <SidebarLink link={{ label: "Account", href: "/account", icon: <IconUser /> }} />
+          <SidebarLink link={{ label: "Wishlist", href: "/wishlist", icon: <IconHeart /> }} />
+          <SidebarLink link={{ label: "Cart", href: "/cart", icon: <IconShoppingCart /> }} />
         </SidebarBody>
       </Sidebar>
 
-      {/* Banner image */}
+      {/* Banner Image */}
       <div className="mt-6">
         <img
-          src="/images/banner_womens.png"
-          alt="Women's Jewelry Banner"
+          src="/images/banner_combined.png"
+          alt="Jewelry Banner"
           className="w-full h-60 object-cover"
         />
       </div>
@@ -131,8 +99,9 @@ export default function WomensJewelry() {
         </div>
       </main>
 
-      {/* Footer component */}
+      {/* Footer Component */}
       <Footer />
     </>
   );
 }
+
