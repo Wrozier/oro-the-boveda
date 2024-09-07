@@ -98,7 +98,7 @@ export default function Home() {
         <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="Contact">
           <Link href="/contact">Contact</Link>
         </MenuItem>
-      </Menu>
+      </Menu> 
       
       <div className="flex flex-1">
         {/* Sidebar component */}
@@ -115,7 +115,7 @@ export default function Home() {
               <SidebarLink key={link.label} link={link} />
             ))}
           </SidebarBody>
-        </Sidebar>
+        </Sidebar> 
 
         <div className="flex-1 flex flex-col items-center justify-center">
           {/* Centered HeroParallax component */}
@@ -131,7 +131,7 @@ export default function Home() {
           {/* Footer component */}
           <Footer />
         </div>
-      </div>
+      </div> 
     </div>
   );
 }
