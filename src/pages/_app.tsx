@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
         <title>Oro Boveda</title>
-        <meta name="description" content="Your site description here." />
+        <meta name="gold vault" content="Your site description here." />
         <link rel="logo" href="/goldvault.png" />
       </Head>
       <Component {...pageProps} />

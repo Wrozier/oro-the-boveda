@@ -6,7 +6,6 @@ import { HeroParallax } from "@/components/ui/hero-parallax";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { Footer } from "@/components/ui/footer";
 import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react";
-import { Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu"; 
 import Link from "next/link";
 
 export default function Home() {
@@ -77,29 +76,6 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      {/* NavbarMenu component */}
-      <Menu setActive={setActiveMenuItem}>
-        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="Home">
-          <Link href="/">Home</Link>
-        </MenuItem>
-        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="About Us">
-          <Link href="/about-us">About Us</Link>
-        </MenuItem>
-        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="Men's Jewelry">
-          <Link href="/mens-jewelry">Men's Jewelry</Link>
-        </MenuItem>
-        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="Women's Jewelry">
-          <Link href="/womens-jewelry">Women's Jewelry</Link>
-        </MenuItem>
-        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="Cart">
-          <Link href="/cart">Cart</Link>
-        </MenuItem>
-
-        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="Contact">
-          <Link href="/contact">Contact</Link>
-        </MenuItem>
-      </Menu> 
-      
       <div className="flex flex-1">
         {/* Sidebar component */}
         <Sidebar>
