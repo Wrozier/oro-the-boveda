@@ -3,11 +3,10 @@
 import React, { useState } from "react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { Footer } from "@/components/ui/footer";
-import { Sidebar, SidebarLink, SidebarBody } from "@/components/ui/sidebar";
 import SizeFilter from "@/components/ui/size-filter";
-import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react";
 import Lamp from "@/components/ui/lamp"; // Import LampDemo component
-import Link from "next/link";
+import { FloatingNav } from "@/components/ui/floating-navbar"; // Adjust the import based on your project structure
+import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react";
 
 // Define the products data locally
 const products = [
@@ -46,80 +45,69 @@ export default function MensJewelry() {
     selectedSize ? product.sizes.includes(selectedSize) : true
   );
 
+  // Define navigation items for FloatingNav
+  const navItems = [
+    { name: "Home", link: "/", icon: <IconHome /> },
+    { name: "About Us", link: "/about-us", icon: <IconInfoCircle /> },
+    { name: "Men's Jewelry", link: "/mens-jewelry", icon: <IconUser /> },
+    { name: "Women's Jewelry", link: "/womens-jewelry", icon: <IconUser /> },
+    { name: "Contact", link: "/contact", icon: <IconMail /> },
+    { name: "Cart", link: "/cart", icon: <IconPaperBag /> },
+  ];
+
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="flex flex-1">
-        {/* Sidebar component */}
-        <Sidebar>
-          <SidebarBody>
-            {[
-              { label: "Home", href: "/", icon: <IconHome /> },
-              { label: "About Us", href: "/about-us", icon: <IconInfoCircle /> },
-              { label: "Men's Jewelry", href: "/mens-jewelry", icon: <IconUser /> },
-              { label: "Women's Jewelry", href: "/womens-jewelry", icon: <IconUser /> },
-              { label: "Contact", href: "/contact", icon: <IconMail /> },
-              { label: "Cart", href: "/cart", icon: <IconPaperBag /> },
-            ].map((link) => (
-              <SidebarLink key={link.label} link={link} />
-            ))}
-          </SidebarBody>
-        </Sidebar>
+      {/* Floating Navigation Bar */}
+      <FloatingNav navItems={navItems} />
 
-        <div className="flex-1">
-          {/* LampDemo component replacing Banner image */}
-          <Lamp /> {/* Replaces banner image with LampEffect demo */}
+      <div className="flex-1 flex flex-col">
+        {/* LampDemo component replacing Banner image */}
+        <Lamp /> {/* Replaces banner image with LampEffect demo */}
 
-          {/* Filter and 3D Cards listing products */}
-          <main className="min-h-screen flex-col items-start justify-center p-8">
-            <div className="flex flex-col lg:flex-row w-full max-w-6xl gap-8">
-              {/* Filter Sidebar */}
-              <div className="w-full lg:w-1/4">
-                <SizeFilter onSizeSelect={handleSizeSelect} />
-              </div>
+        {/* Filter and 3D Cards listing products */}
+        <main className="flex-1 overflow-y-auto p-8">
+          <div className="flex flex-col lg:flex-row w-full max-w-6xl gap-8">
+            {/* Filter Sidebar */}
+            <div className="w-full lg:w-1/4">
+              <SizeFilter onSizeSelect={handleSizeSelect} />
+            </div>
 
-              {/* Products */}
-              <div className="w-full lg:w-3/4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredProducts.map((product) => (
-                    <CardContainer
-                      key={product.title}
-                      className="transition-transform duration-300 w-full max-w-xs"
-                    >
-                      <CardBody className="relative">
-                        <CardItem
-                          as="a"
-                          href={product.link}
-                          className="p-3 bg-transparent rounded-lg shadow-lg hover:shadow-xl"
-                          translateX={0}
-                          translateY={0}
-                          translateZ={80}
-                          rotateX={0}
-                          rotateY={0}
-                          rotateZ={0}
-                        >
-                          <img
-                            src={product.thumbnail}
-                            alt={product.title}
-                            className="w-full h-60 object-cover rounded-lg mb-3"
-                          />
-                          <h3 className="text-md font-semibold mb-1">
-                            {product.title}
-                          </h3>
-                          <p className="text-brown-600 text-sm">
-                            {product.description}
-                          </p>
-                        </CardItem>
-                      </CardBody>
-                    </CardContainer>
-                  ))}
-                </div>
+            {/* Products */}
+            <div className="w-full lg:w-3/4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredProducts.map((product) => (
+                  <CardContainer
+                    key={product.title}
+                    className="transition-transform duration-300 w-full max-w-xs"
+                  >
+                    <CardBody className="relative">
+                      <CardItem
+                        as="a"
+                        href={product.link}
+                        className="p-3 bg-transparent rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                      >
+                        <img
+                          src={product.thumbnail}
+                          alt={product.title}
+                          className="w-full h-60 object-cover rounded-lg mb-3"
+                        />
+                        <h3 className="text-md font-semibold mb-1">
+                          {product.title}
+                        </h3>
+                        <p className="text-brown-600 text-sm">
+                          {product.description}
+                        </p>
+                      </CardItem>
+                    </CardBody>
+                  </CardContainer>
+                ))}
               </div>
             </div>
-          </main>
+          </div>
+        </main>
 
-          {/* Footer component */}
-          <Footer />
-        </div>
+        {/* Footer component */}
+        <Footer />
       </div>
     </div>
   );
