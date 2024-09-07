@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
+import React, { useState } from "react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { Footer } from "@/components/ui/footer";
 import { Sidebar, SidebarLink, SidebarBody } from "@/components/ui/sidebar";
 import SizeFilter from "@/components/ui/size-filter";
-import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react"; // Import additional icons
+import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react";
+import Lamp from "@/components/ui/lamp"; // Import LampDemo component
 import Link from "next/link";
 
 // Define the products data locally
@@ -36,30 +36,7 @@ const products = [
 ];
 
 export default function MensJewelry() {
-  const [active, setActive] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   const handleSizeSelect = (size: string) => {
     setSelectedSize(size);
@@ -71,28 +48,6 @@ export default function MensJewelry() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      {/* Navbar-menu component */}
-      <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Home">
-          <Link href="/">Home</Link>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="About Us">
-          <Link href="/about-us">About Us</Link>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Men's Jewelry">
-          <Link href="/mens-jewelry">Men's Jewelry</Link>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Women's Jewelry">
-          <Link href="/womens-jewelry">Women's Jewelry</Link>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Cart">
-          <Link href="/cart">Cart</Link>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Contact">
-          <Link href="/contact">Contact</Link>
-        </MenuItem>
-      </Menu>
-
       <div className="flex flex-1">
         {/* Sidebar component */}
         <Sidebar>
@@ -111,14 +66,8 @@ export default function MensJewelry() {
         </Sidebar>
 
         <div className="flex-1">
-          {/* Banner image */}
-          <div className="mt-6">
-            <img
-              src="/images/banner_mens.png"
-              alt="Men's Jewelry Banner"
-              className="w-full h-60 object-cover"
-            />
-          </div>
+          {/* LampDemo component replacing Banner image */}
+          <Lamp /> {/* Replaces banner image with LampEffect demo */}
 
           {/* Filter and 3D Cards listing products */}
           <main className="min-h-screen flex-col items-start justify-center p-8">

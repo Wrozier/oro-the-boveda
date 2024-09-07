@@ -20,7 +20,7 @@
 html, body {
   padding: 0;
   margin: 0;
-  font-family: 'black_jackregular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: 'Comfortaa-Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   background-color: #f8f9fa;
   color: #ca9d62d4;
   overflow-x: hidden;
@@ -276,8 +276,8 @@ nav {
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #966919; /*#966919 gold ; #0f4d21 green*/
-    color: #caba10f3;
+    background-color: #0f4d21; /*#966919 gold ; #0f4d21 green*/
+    color: #966919;
   }
 
   a {

@@ -1,65 +1,42 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Menu, MenuItem } from "@/components/ui/navbar-menu";
+import React, { useState } from "react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { Footer } from "@/components/ui/footer";
 import { Sidebar, SidebarLink, SidebarBody } from "@/components/ui/sidebar";
 import SizeFilter from "@/components/ui/size-filter";
 import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react";
+import Lamps from "@/components/ui/lamps"; // Import LampDemo component
 import Link from "next/link";
 
-// Define the products data locally
+// Define the products data for women's jewelry
 const products = [
   {
-    title: "Men's Cuban Link Chain",
-    description: "A timeless piece for the modern man.",
-    link: "/products/mens-cuban-link",
-    thumbnail: "/images/tenmmyg.png",
+    title: "Women's Diamond Necklace",
+    description: "A dazzling piece for any occasion.",
+    link: "/products/womens-diamond-necklace",
+    thumbnail: "/images/diamond-necklace.png",
+    sizes: ["Small", "Medium"],
+  },
+  {
+    title: "Women's Gold Earrings",
+    description: "Elegance and sophistication.",
+    link: "/products/womens-gold-earrings",
+    thumbnail: "/images/gold-earrings.png",
+    sizes: ["One Size"],
+  },
+  {
+    title: "Women's Silver Bracelet",
+    description: "A touch of grace on your wrist.",
+    link: "/products/womens-silver-bracelet",
+    thumbnail: "/images/silver-bracelet.png",
     sizes: ["Small", "Medium", "Large"],
   },
-  {
-    title: "Men's Gold Ring",
-    description: "Elegance in every detail.",
-    link: "/products/mens-gold-ring",
-    thumbnail: "/images/goldvault.png",
-    sizes: ["Medium", "Large"],
-  },
-  {
-    title: "Men's Gold Bracelet",
-    description: "Luxury on your wrist.",
-    link: "/products/mens-gold-bracelet",
-    thumbnail: "/images/oroboveda.png",
-    sizes: ["Small", "Large"],
-  },
-  // More product entries here...
+  // Add more product entries here...
 ];
 
 export default function WomensJewelry() {
-  const [active, setActive] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   const handleSizeSelect = (size: string) => {
     setSelectedSize(size);
@@ -71,28 +48,6 @@ export default function WomensJewelry() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      {/* Navbar-menu component */}
-      <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Home">
-          <Link href="/">Home</Link>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="About Us">
-          <Link href="/about-us">About Us</Link>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Men's Jewelry">
-          <Link href="/mens-jewelry">Men's Jewelry</Link>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Women's Jewelry">
-          <Link href="/womens-jewelry">Women's Jewelry</Link>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Cart">
-          <Link href="/cart">Cart</Link>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Contact">
-          <Link href="/contact">Contact</Link>
-        </MenuItem>
-      </Menu>
-
       <div className="flex flex-1">
         {/* Sidebar component */}
         <Sidebar>
@@ -111,14 +66,8 @@ export default function WomensJewelry() {
         </Sidebar>
 
         <div className="flex-1">
-          {/* Banner image */}
-          <div className="mt-6">
-            <img
-              src="/images/jewlery_banner.png"
-              alt="Women's Jewelry Banner"
-              className="w-full h-60 object-cover"
-            />
-          </div>
+          {/* LampDemo component replacing Banner image */}
+          <Lamps /> {/* Replaces banner image with LampEffect demo */}
 
           {/* Filter and 3D Cards listing products */}
           <main className="min-h-screen flex-col items-start justify-center p-8">
