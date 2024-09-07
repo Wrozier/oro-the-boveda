@@ -5,8 +5,8 @@ import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { Footer } from "@/components/ui/footer";
-import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react"; // Import additional icons
-import { Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu"; // Import Navbar components
+import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react";
+import { Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu"; 
 import Link from "next/link";
 
 export default function Home() {
@@ -79,52 +79,27 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       {/* NavbarMenu component */}
       <Menu setActive={setActiveMenuItem}>
-        <MenuItem
-          setActive={setActiveMenuItem}
-          active={activeMenuItem}
-          item="Home"
-        >
+        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="Home">
           <Link href="/">Home</Link>
         </MenuItem>
-        <MenuItem
-          setActive={setActiveMenuItem}
-          active={activeMenuItem}
-          item="About Us"
-        >
+        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="About Us">
           <Link href="/about-us">About Us</Link>
         </MenuItem>
-        <MenuItem
-          setActive={setActiveMenuItem}
-          active={activeMenuItem}
-          item="Men's Jewelry"
-        >
+        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="Men's Jewelry">
           <Link href="/mens-jewelry">Men's Jewelry</Link>
         </MenuItem>
-        <MenuItem
-          setActive={setActiveMenuItem}
-          active={activeMenuItem}
-          item="Women's Jewelry"
-        >
+        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="Women's Jewelry">
           <Link href="/womens-jewelry">Women's Jewelry</Link>
         </MenuItem>
-        <MenuItem
-          setActive={setActiveMenuItem}
-          active={activeMenuItem}
-          item="Cart"
-        >
+        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="Cart">
           <Link href="/cart">Cart</Link>
         </MenuItem>
 
-        <MenuItem
-          setActive={setActiveMenuItem}
-          active={activeMenuItem}
-          item="Contact"
-        >
+        <MenuItem setActive={setActiveMenuItem} active={activeMenuItem} item="Contact">
           <Link href="/contact">Contact</Link>
         </MenuItem>
       </Menu>
       
-
       <div className="flex flex-1">
         {/* Sidebar component */}
         <Sidebar>
@@ -132,7 +107,7 @@ export default function Home() {
             {[
               { label: "Home", href: "/", icon: <IconHome /> },
               { label: "About Us", href: "/about-us", icon: <IconInfoCircle /> },
-              { label: "Men's Jewlery", href: "/mens-jewelry", icon: <IconUser /> },
+              { label: "Men's Jewelry", href: "/mens-jewelry", icon: <IconUser /> },
               { label: "Women's Jewelry", href: "/womens-jewelry", icon: <IconUser /> },
               { label: "Contact", href: "/contact", icon: <IconMail /> },
               { label: "Cart", href: "/cart", icon: <IconPaperBag /> },
@@ -142,9 +117,11 @@ export default function Home() {
           </SidebarBody>
         </Sidebar>
 
-        <div className="flex-1">
-          {/* HeroParallax component */}
-          <HeroParallax products={products} />
+        <div className="flex-1 flex flex-col items-center justify-center">
+          {/* Centered HeroParallax component */}
+          <div className="flex items-center justify-center w-full">
+            <HeroParallax products={products} />
+          </div>
 
           <main className="flex flex-col items-center justify-center p-24">
             <h2 className="text-3xl font-bold mb-8">Explore Our Carousel</h2>
