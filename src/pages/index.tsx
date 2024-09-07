@@ -1,16 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { Footer } from "@/components/ui/footer";
+import { FloatingNav } from "@/components/ui/floating-navbar"; // Adjust the import based on your project structure
 import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react";
-import Link from "next/link";
 
 export default function Home() {
-  const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);
-
   const products = [
     {
       title: "Vault",
@@ -28,36 +25,6 @@ export default function Home() {
       thumbnail: "/images/oromm-cuban.png",
     },
     // Add more products as needed...
-    {
-      title: "Vault",
-      link: "/products/vault",
-      thumbnail: "/images/goldvault.png",
-    },
-    {
-      title: "Customs",
-      link: "/products/customs",
-      thumbnail: "/images/product_1.png",
-    },
-    {
-      title: "Apple Watch",
-      link: "/products/apple-watch",
-      thumbnail: "/images/oromm-cuban.png",
-    },
-    {
-      title: "Vault",
-      link: "/products/vault",
-      thumbnail: "/images/goldvault.png",
-    },
-    {
-      title: "Customs",
-      link: "/products/customs",
-      thumbnail: "/images/product_1.png",
-    },
-    {
-      title: "Apple Watch",
-      link: "/products/apple-watch",
-      thumbnail: "/images/oromm-cuban.png",
-    },
   ];
 
   // Map products to Card components
@@ -74,40 +41,35 @@ export default function Home() {
     />
   ));
 
+  // Define navigation items for FloatingNav
+  const navItems = [
+    { name: "Home", link: "/", icon: <IconHome /> },
+    { name: "About Us", link: "/about-us", icon: <IconInfoCircle /> },
+    { name: "Men's Jewelry", link: "/mens-jewelry", icon: <IconUser /> },
+    { name: "Women's Jewelry", link: "/womens-jewelry", icon: <IconUser /> },
+    { name: "Contact", link: "/contact", icon: <IconMail /> },
+    { name: "Cart", link: "/cart", icon: <IconPaperBag /> },
+  ];
+
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="flex flex-1">
-        {/* Sidebar component */}
-        <Sidebar>
-          <SidebarBody>
-            {[
-              { label: "Home", href: "/", icon: <IconHome /> },
-              { label: "About Us", href: "/about-us", icon: <IconInfoCircle /> },
-              { label: "Men's Jewelry", href: "/mens-jewelry", icon: <IconUser /> },
-              { label: "Women's Jewelry", href: "/womens-jewelry", icon: <IconUser /> },
-              { label: "Contact", href: "/contact", icon: <IconMail /> },
-              { label: "Cart", href: "/cart", icon: <IconPaperBag /> },
-            ].map((link) => (
-              <SidebarLink key={link.label} link={link} />
-            ))}
-          </SidebarBody>
-        </Sidebar> 
+      {/* Floating Navigation Bar */}
+      <FloatingNav navItems={navItems} />
 
-        <div className="flex-1 flex flex-col items-center justify-center">
-          {/* Centered HeroParallax component */}
-          <div className="flex items-center justify-center w-full">
-            <HeroParallax products={products} />
-          </div>
-
-          <main className="flex flex-col items-center justify-center p-24">
-            <h2 className="text-3xl font-bold mb-8">Explore Our Carousel</h2>
-            <Carousel items={items} />
-          </main>
-
-          {/* Footer component */}
-          <Footer />
+      <div className="flex-1 flex flex-col items-center justify-center">
+        {/* Centered HeroParallax component */}
+        <div className="flex items-center justify-center w-full">
+          <HeroParallax products={products} />
         </div>
-      </div> 
+
+        <main className="flex flex-col items-center justify-center p-24">
+          <h2 className="text-3xl font-bold mb-8">Explore Our Carousel</h2>
+          <Carousel items={items} />
+        </main>
+
+        {/* Footer component */}
+        <Footer />
+      </div>
     </div>
   );
 }
