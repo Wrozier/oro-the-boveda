@@ -276,7 +276,7 @@ nav {
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #0f4d21;
+    background-color: #966919; /*#966919 gold ; #0f4d21 green*/
     color: #caba10f3;
   }
 
