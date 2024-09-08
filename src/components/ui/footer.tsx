@@ -4,14 +4,15 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-12">
+    <footer className="bg-white-800 text-gold py-12">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         <div>
           <h4 className="font-bold text-lg mb-4">Company</h4>
           <ul className="space-y-2">
+          <li><a href="/" className="hover:underline">Home</a></li>
             <li><a href="about-us" className="hover:underline">About Us</a></li>
-            <li><a href="#" className="hover:underline">Careers</a></li>
-            <li><a href="#" className="hover:underline">Blog</a></li>
+            <li><a href="mens-jewelry" className="hover:underline">Men's</a></li>
+            <li><a href="womens-jewelry" className="hover:underline">Women's</a></li>
           </ul>
         </div>
         <div>

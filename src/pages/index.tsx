@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { HeroParallax } from "@/components/ui/hero-parallax";
-import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { FocusCards } from "@/components/ui/focus-cards"; // Import FocusCards component
 import { Footer } from "@/components/ui/footer";
 import { FloatingNav } from "@/components/ui/floating-navbar"; // Adjust the import based on your project structure
 import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react";
@@ -13,63 +13,64 @@ export default function Home() {
       title: "Vault",
       link: "/products/vault",
       thumbnail: "/images/goldvault.png",
+      description: "A secure vault for your precious items.",
     },
     {
       title: "Customs",
       link: "/products/customs",
       thumbnail: "/images/product_1.png",
+      description: "Custom jewelry designed just for you.",
     },
     {
       title: "Apple Watch",
       link: "/products/apple-watch",
       thumbnail: "/images/oromm-cuban.png",
+      description: "The latest Apple Watch with innovative features.",
     },
     // Add more products as needed...
     {
       title: "Vault",
       link: "/products/vault",
       thumbnail: "/images/goldvault.png",
+      description: "A secure vault for your precious items.",
     },
     {
       title: "Customs",
       link: "/products/customs",
       thumbnail: "/images/product_1.png",
+      description: "Custom jewelry designed just for you.",
     },
     {
       title: "Apple Watch",
       link: "/products/apple-watch",
       thumbnail: "/images/oromm-cuban.png",
+      description: "The latest Apple Watch with innovative features.",
     },
-    {
+        {
       title: "Vault",
       link: "/products/vault",
       thumbnail: "/images/goldvault.png",
+      description: "A secure vault for your precious items.",
     },
     {
       title: "Customs",
       link: "/products/customs",
       thumbnail: "/images/product_1.png",
+      description: "Custom jewelry designed just for you.",
     },
     {
       title: "Apple Watch",
       link: "/products/apple-watch",
       thumbnail: "/images/oromm-cuban.png",
+      description: "The latest Apple Watch with innovative features.",
     },
   ];
 
-  // Map products to Card components
-  const items = products.map((product) => (
-    <Card
-      key={product.title}
-      card={{
-        src: product.thumbnail,
-        title: product.title,
-        category: "Product",
-        content: <p>Some description or content related to {product.title}</p>,
-      }}
-      index={0}
-    />
-  ));
+  // Transform products to match the expected structure for FocusCards
+  const cards = products.map((product) => ({
+    title: product.title,
+    src: product.thumbnail,
+  }));
 
   // Define navigation items for FloatingNav
   const navItems = [
@@ -86,15 +87,15 @@ export default function Home() {
       {/* Floating Navigation Bar */}
       <FloatingNav navItems={navItems} />
 
-      <div className="flex-1 flex flex-col items-center justify-center">
+      <div className="flex-1 flex flex-col items-flex justify-center">
         {/* Centered HeroParallax component */}
         <div className="flex items-center justify-center w-full">
           <HeroParallax products={products} />
         </div>
 
-        <main className="flex flex-col items-center justify-center p-24">
-          <h2 className="text-3xl font-bold mb-8">Explore Our Carousel</h2>
-          <Carousel items={items} />
+        <main className="flex flex-col items-center justify-center p-34">
+          <h2 className="text-3xl font-bold mb-8">Explore Our Products</h2>
+          <FocusCards cards={cards} /> {/* Use FocusCards to display products */}
         </main>
 
         {/* Footer component */}
