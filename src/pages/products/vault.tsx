@@ -44,7 +44,7 @@ const VaultPage = () => {
   ));
 
   return (
-    <div className="flex flex-col min-h-screen bg-green-800 text-white">
+    <div className="flex flex-col min-h-screen bg-green-800 text-gold">
       {/* Floating Navigation Bar */}
       <FloatingNav navItems={navItems} />
 
