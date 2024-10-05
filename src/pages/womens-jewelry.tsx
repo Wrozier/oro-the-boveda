@@ -1,10 +1,10 @@
-"use client";
+"use client"; // Ensure this is at the top
 
 import React, { useState } from "react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { Footer } from "@/components/ui/footer";
 import SizeFilter from "@/components/ui/size-filter";
-import Lamps from "@/components/ui/lamps"; // Import LampDemo component
+import { ImagesSlider } from "@/components/ui/images-slider"; // Adjust the path as necessary
 import { FloatingNav } from "@/components/ui/floating-navbar"; // Adjust the import based on your project structure
 import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react";
 
@@ -14,21 +14,21 @@ const products = [
     title: "Women's Diamond Necklace",
     description: "A dazzling piece for any occasion.",
     link: "/products/womens-diamond-necklace",
-    thumbnail: "/images/diamond-necklace.png",
+    thumbnail: "/images/diamondnecklace.png",
     sizes: ["Small", "Medium"],
   },
   {
     title: "Women's Gold Earrings",
     description: "Elegance and sophistication.",
     link: "/products/womens-gold-earrings",
-    thumbnail: "/images/gold-earrings.png",
+    thumbnail: "public/images/goldearrings.png",
     sizes: ["One Size"],
   },
   {
     title: "Women's Silver Bracelet",
     description: "A touch of grace on your wrist.",
     link: "/products/womens-silver-bracelet",
-    thumbnail: "/images/silver-bracelet.png",
+    thumbnail: "public/images/silver-bracelet.png",
     sizes: ["Small", "Medium", "Large"],
   },
   // Add more product entries here...
@@ -55,14 +55,26 @@ export default function WomensJewelry() {
     { name: "Cart", link: "/cart", icon: <IconPaperBag /> },
   ];
 
+  const imageUrls = [
+    "/images/goldearrings.png",
+    "/images/tenmmyg.png",
+    "/images/goldearrings.png",
+    // Add more image paths here
+  ];
+
   return (
     <div className="flex min-h-screen flex-col">
       {/* Floating Navigation Bar */}
       <FloatingNav navItems={navItems} />
 
       <div className="flex-1 flex flex-col">
-        {/* LampDemo component replacing Banner image */}
-        <Lamps /> {/* Replaces banner image with LampEffect demo */}
+        {/* Replace Lamps with ImagesSlider */}
+        <div className="relative w-full h-40 overflow-hidden">
+          <ImagesSlider images={imageUrls}>
+            {/* Optional overlay or additional content */}
+            <div className="absolute z-70 text-white">Your overlay content here</div>
+          </ImagesSlider>
+        </div>
 
         {/* Filter and 3D Cards listing products */}
         <main className="min-h-screen flex-col items-start justify-center p-8">

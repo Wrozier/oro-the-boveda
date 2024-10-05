@@ -1,15 +1,14 @@
-// /pages/cart.tsx
-
 "use client";
 
 import React, { useState } from "react";
-import CartItem from "@/components/ui/CartItem";
+import CartItem from "@/components/ui/CartItem"; // Ensure this path is correct
 import CheckoutForm from "@/components/ui/CheckoutForm";
 import OrderTracking from "@/components/ui/OrderTracking";
 import PostalSelection from "@/components/ui/PostalSelection";
 import PaymentOptions from "@/components/ui/PaymentOptions";
 import { FloatingNav } from "@/components/ui/floating-navbar"; // Ensure this path is correct
-import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag, IconTextWrap } from "@tabler/icons-react"; // Use a valid icon
+import { IconHome, IconInfoCircle, IconUser, IconMail, IconPaperBag } from "@tabler/icons-react"; // Use valid icons
+import { Timeline } from "@/components/ui/timeline"; // Import your Timeline component
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([
@@ -19,6 +18,7 @@ const Cart = () => {
 
   const [selectedPostal, setSelectedPostal] = useState<string | null>(null);
   const [paymentMethod, setPaymentMethod] = useState<string | null>(null);
+  const [currentStep, setCurrentStep] = useState(0); // Track the current step in the timeline
 
   const handleAddItem = (id: number) => {
     setCartItems((prevItems) =>
@@ -48,37 +48,53 @@ const Cart = () => {
     { name: "Cart", link: "/cart", icon: <IconPaperBag /> },
   ];
 
+  // Steps for the checkout timeline
+  const steps = [
+    { title: "Cart", content: <CartItemsSection cartItems={cartItems} onAddItem={handleAddItem} onRemoveItem={handleRemoveItem} /> },
+    { title: "Shipping", content: <PostalSelection setSelectedPostal={setSelectedPostal} /> },
+    { title: "Payment", content: <PaymentOptions setPaymentMethod={setPaymentMethod} /> },
+    { title: "Review", content: <CheckoutForm /> },
+    { title: "Tracking", content: <OrderTracking /> },
+  ];
+
   return (
     <>
       {/* Floating Navigation Bar */}
       <FloatingNav navItems={navItems} />
 
       <div className="container mx-auto p-6">
-        <h1 className="text-4xl font-bold mb-6">Your Cart</h1>
+        <h1 className="text-4xl font-bold mb-6">Checkout Process</h1>
 
-        <div className="flex flex-col gap-6 mb-6">
-          {cartItems.map((item) => (
-            <CartItem
-              key={item.id}
-              item={item}
-              onAdd={() => handleAddItem(item.id)}
-              onRemove={() => handleRemoveItem(item.id)}
-            />
-          ))}
-        </div>
+        {/* Timeline Component */}
+        <Timeline data={steps} />
 
-        <div className="flex flex-col md:flex-row gap-6">
-          <CheckoutForm />
-          <OrderTracking />
-        </div>
-
+        {/* Render the current step's content */}
         <div className="mt-6">
-          <PostalSelection setSelectedPostal={setSelectedPostal} />
-          <PaymentOptions setPaymentMethod={setPaymentMethod} />
+          {steps[currentStep]?.content}
         </div>
       </div>
     </>
   );
 };
+
+// Separate component for displaying cart items
+interface CartItemsSectionProps {
+  cartItems: { id: number; name: string; price: number; quantity: number; thumbnail: string; }[];
+  onAddItem: (id: number) => void;
+  onRemoveItem: (id: number) => void;
+}
+
+const CartItemsSection: React.FC<CartItemsSectionProps> = ({ cartItems, onAddItem, onRemoveItem }) => (
+  <div className="flex flex-col gap-6 mb-6">
+    {cartItems.map((item) => (
+      <CartItem
+        key={item.id}
+        item={item}
+        onAdd={() => onAddItem(item.id)}
+        onRemove={() => onRemoveItem(item.id)}
+      />
+    ))}
+  </div>
+);
 
 export default Cart;

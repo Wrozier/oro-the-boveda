@@ -22,7 +22,7 @@ export default function Home() {
       description: "Custom jewelry designed just for you.",
     },
     {
-      title: "Apple Watch",
+      title: "Accessories",
       link: "/products/apple-watch",
       thumbnail: "/images/oromm-cuban.png",
       description: "The latest Apple Watch with innovative features.",
@@ -41,7 +41,7 @@ export default function Home() {
       description: "Custom jewelry designed just for you.",
     },
     {
-      title: "Apple Watch",
+      title: "Accessories",
       link: "/products/apple-watch",
       thumbnail: "/images/oromm-cuban.png",
       description: "The latest Apple Watch with innovative features.",

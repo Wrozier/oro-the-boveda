@@ -50,7 +50,7 @@ const AboutUs: React.FC = () => {
 
         {/* Main content */}
         <div className="container mx-auto p-8">
-          <h1 className="text-4xl font-bold mb-6 text-center text-gold-800">About Us</h1>
+          <h1 className="text-4xl font-bold mb-6 text-center text-glod-800">About Us</h1>
 
           <div className="mb-8">
             <p className="text-lg text-gold-700 leading-relaxed text-center">
