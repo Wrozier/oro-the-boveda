@@ -21,17 +21,60 @@ const products = [
     title: "Women's Gold Earrings",
     description: "Elegance and sophistication.",
     link: "/products/womens-gold-earrings",
-    thumbnail: "public/images/goldearrings.png",
+    thumbnail: "/images/goldearrings.png",
     sizes: ["One Size"],
   },
   {
     title: "Women's Silver Bracelet",
     description: "A touch of grace on your wrist.",
     link: "/products/womens-silver-bracelet",
-    thumbnail: "public/images/silver-bracelet.png",
+    thumbnail: "/images/silverbracelet.png",
     sizes: ["Small", "Medium", "Large"],
   },
   // Add more product entries here...
+  {
+    title: "Women's Diamond Necklace",
+    description: "A dazzling piece for any occasion.",
+    link: "/products/womens-diamond-necklace",
+    thumbnail: "/images/diamondnecklace.png",
+    sizes: ["Small", "Medium"],
+  },
+  {
+    title: "Women's Gold Earrings",
+    description: "Elegance and sophistication.",
+    link: "/products/womens-gold-earrings",
+    thumbnail: "/images/goldearrings.png",
+    sizes: ["One Size"],
+  },
+  {
+    title: "Women's Silver Bracelet",
+    description: "A touch of grace on your wrist.",
+    link: "/products/womens-silver-bracelet",
+    thumbnail: "/images/silverbracelet.png",
+    sizes: ["Small", "Medium", "Large"],
+  },
+
+  {
+    title: "Women's Diamond Necklace",
+    description: "A dazzling piece for any occasion.",
+    link: "/products/womens-diamond-necklace",
+    thumbnail: "/images/diamondnecklace.png",
+    sizes: ["Small", "Medium"],
+  },
+  {
+    title: "Women's Gold Earrings",
+    description: "Elegance and sophistication.",
+    link: "/products/womens-gold-earrings",
+    thumbnail: "/images/goldearrings.png",
+    sizes: ["One Size"],
+  },
+  {
+    title: "Women's Silver Bracelet",
+    description: "A touch of grace on your wrist.",
+    link: "/products/womens-silver-bracelet",
+    thumbnail: "/images/silverbracelet.png",
+    sizes: ["Small", "Medium", "Large"],
+  },
 ];
 
 export default function WomensJewelry() {
@@ -69,10 +112,10 @@ export default function WomensJewelry() {
 
       <div className="flex-1 flex flex-col">
         {/* Replace Lamps with ImagesSlider */}
-        <div className="relative w-full h-40 overflow-hidden">
+        <div className="relative w-full h-60 overflow-hidden">
           <ImagesSlider images={imageUrls}>
             {/* Optional overlay or additional content */}
-            <div className="absolute z-70 text-white">Your overlay content here</div>
+            <div className="absolute z-50 text-white">Your overlay content here</div>
           </ImagesSlider>
         </div>
 

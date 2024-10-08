@@ -2,10 +2,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ImagesSliders } from "@/components/ui/images-sliders"; // Adjust path as needed
 
 export default function LampDemo() {
+  const imageUrls = [
+    "/images/diamond-necklace.png", 
+    "/images/gold-earrings.png", 
+    "/images/silver-bracelet.png", 
+    // Add more images here
+  ];
+
   return (
     <LampContainer>
+      {/* Motion Title */}
       <motion.h1
         initial={{ opacity: 0.5, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -16,8 +25,16 @@ export default function LampDemo() {
         }}
         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-gold md:text-7xl"
       >
-        Mens <br /> Vault
+        Men's <br /> Vault
       </motion.h1>
+
+      {/* Replace Lamps with ImagesSlider */}
+      <div className="relative w-full h-60 overflow-hidden mt-8">
+        {/* Pass the required 'children' prop */}
+        <ImagesSliders images={imageUrls}>
+          <div className="overlay"> {/* You can pass any valid ReactNode here */}</div>
+        </ImagesSliders>
+      </div>
     </LampContainer>
   );
 }
@@ -37,6 +54,7 @@ export const LampContainer = ({
       )}
     >
       <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0 ">
+        {/* Left Gradient Effect */}
         <motion.div
           initial={{ opacity: 0.5, width: "15rem" }}
           whileInView={{ opacity: 1, width: "30rem" }}
@@ -54,6 +72,7 @@ export const LampContainer = ({
           <div className="absolute w-40 h-[100%] left-0 bg-slate-950 bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
         </motion.div>
 
+        {/* Right Gradient Effect */}
         <motion.div
           initial={{ opacity: 0.5, width: "15rem" }}
           whileInView={{ opacity: 1, width: "30rem" }}
@@ -71,6 +90,7 @@ export const LampContainer = ({
           <div className="absolute w-[100%] right-0 bg-slate-950 h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
         </motion.div>
 
+        {/* Background Effects */}
         <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-slate-950 blur-2xl"></div>
         <div className="absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md"></div>
         <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-green-500 opacity-50 blur-3xl"></div>
@@ -100,6 +120,7 @@ export const LampContainer = ({
         <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-slate-950 "></div>
       </div>
 
+      {/* Child Components */}
       <div className="relative z-50 flex -translate-y-80 flex-col items-center px-5">
         {children}
       </div>
